@@ -9,26 +9,25 @@
 
 	//Example of anonymous function. We can asign the function to a variable because functions in javascript are a special type of object.
 
-	var anonymous = function(){
-		console.log('anonymousFunction');
+	var anonymous_1 = function(){
+		console.log('anonymous_1');
 	}
 
-	anonymous();
+	anonymous_1();
 
 	/*Anonymous function can have a name and it can be used to call the function from inside the function itself. That can be useful for
 	recursiveness and for debugging */
 
-	var anonymous = function aux(){
+	//anonymous_2(); This will throw an error because would represent undefined(). Any var execution will return undefined before being declared (If it were let, it would return null)
+	let anonymous_2 = function aux(){
 		if(3%2 === 0){
 			console.log('unreachable code');
 		}else{
-			aux();
+			console.log('anonymous_2');
+			//aux();//recursive example
 		}
 	}
-
-	// anonymous(); 
-
-
+	anonymous_2(); 
 
 
 	
@@ -46,7 +45,7 @@
 	declaredFunction();
 
 	function declaredFunction(){
-		console.log('it can be called before its declaration')
+		console.log('Declared function can be called before its declaration')
 	}
 
 </script>
