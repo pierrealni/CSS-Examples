@@ -1,0 +1,54 @@
+<html>
+
+
+<script>
+
+	//Anonymous functions are functions dynamically declared at runtime.
+	//They're called that way because the aren't given a name in the same way as normal functions
+	//Anonymous functions are declaresd using the function operator instead of the function declaration
+
+	//Example of anonymous function. We can asign the function to a variable because functions in javascript are a special type of object.
+
+	var anonymous = function(){
+		console.log('anonymousFunction');
+	}
+
+	anonymous();
+
+	/*Anonymous function can have a name and it can be used to call the function from inside the function itself. That can be useful for
+	recursiveness and for debugging */
+
+	var anonymous = function aux(){
+		if(3%2 === 0){
+			console.log('unreachable code');
+		}else{
+			aux();
+		}
+	}
+
+	// anonymous(); 
+
+
+
+
+	
+	//Example of named or declared function. 
+
+	function namedFunction(){
+		alert('namedFunction');
+	}
+
+	/*
+	Function declarations are run before any of the other code is excecuted,
+	so the functions do not have to be declared before the code that calls them.
+	*/
+
+	declaredFunction();
+
+	function declaredFunction(){
+		console.log('it can be called before its declaration')
+	}
+
+</script>
+
+</html>
