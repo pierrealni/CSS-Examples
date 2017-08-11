@@ -6,8 +6,8 @@
 	/*Variable declarations are processed before any code is executed. Declaring
 	a variable anywhere in the code is equivalent to declaring it at the top.
 	This also means that a variable can appear to be used before it's declared 
-	(this is usefull only when changing the variable values), when using them,
-	they will return undefined.
+	(this is usefull only when changing the variable values), when using them
+	before declaration they will have the value of undefined.*/
 
 	aux_1 = 100;
 	var aux_1;
@@ -16,7 +16,30 @@
 	
 	var aux_2;
 	aux_2 = 100;
+
+
+	/*It appears that let and const may not be hoisted (as they cannot be accessed before declaring).
+	console.log(leti);
+	leti = 5; // ReferenceError leti is not defined
 	*/
+
+	/*
+	That is not the case. Let and const are hoisted but there is a period between 
+	entering scope and being declared where they cannot be accessed (known as temporal dead zone TDZ)
+	The TDZ ends when a let is declared.
+	*/
+
+	/*This is an example of how let is hoisted. If son x would not exist at the top of its scope, the
+	father x would be the one to console-log*/
+
+	//father scope. Father x declaration.
+	let x = 'outer value';
+	(function() {
+	  // child scope, start TDZ for child x
+	  console.log(x); //It cannot be accessed
+	  let x = 'inner value'; 
+	  // declaration ends TDZ for child x
+	}());
 
 </script>
 
